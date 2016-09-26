@@ -1,7 +1,7 @@
 Prezly's Draft-PHP
 ==================
 
-Simple Draft.js model implemented in PHP.
+PHP implementation of Draft.js ContentState model to allow server-side handling of Draft.js produced content.
 
 Usage
 -----
