@@ -6,6 +6,7 @@ PHP implementation of Draft.js ContentState model to allow server-side handling 
 Usage
 -----
 ```php
+// raw JSON content state coming from Draft.js frontend
 $json = '{
     "blocks":[
         {
@@ -40,6 +41,8 @@ $json = '{
         }
     }
 }';
+
+// convert raw JSON state to ContentState model object 
 $contentState = \Prezly\DraftPhp\Converter::convertFromJson($json);
 // or
 $rawState = json_decode($json); // Note: raw state should be an stdClass object, not an associative array
