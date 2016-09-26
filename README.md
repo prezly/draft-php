@@ -143,4 +143,4 @@ License
 
 Credits
 -------
-Brought to you by [Prezly](https://www.prezly.com/) — CRM software crafted for PR communication 
+Built with :metal: by [Prezly](https://www.prezly.com/) — CRM software crafted for PR communication 
