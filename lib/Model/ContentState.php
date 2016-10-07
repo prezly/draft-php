@@ -48,6 +48,20 @@ class ContentState
     {
         return $this->entityMap[$key];
     }
+    
+    public function isEmpty() : bool
+    {
+        if (count($this->_blocks) === 0) {
+            return true;
+        }
+        if ( ! empty($this->_entityMap) OR count($this->_blocks) > 1) {
+            return false;
+        }
+
+        // Now `count($this->_blocks) === 1`
+        $block = $this->_blocks[0];
+        return strlen($block->text) === 0 AND $block->type !== BlockType::ATOMIC;
+    }
 
     function __get($name)
     {
