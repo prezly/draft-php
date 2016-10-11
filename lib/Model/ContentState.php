@@ -1,6 +1,7 @@
 <?php namespace Prezly\DraftPhp\Model;
 
 use InvalidArgumentException;
+use Prezly\DraftPhp\Constants\BlockType;
 
 /**
  * @property ContentBlock[] $blocks
