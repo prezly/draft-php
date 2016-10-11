@@ -23,6 +23,14 @@ class ContentState
     {
         return new self($blocks, $entityMap);
     }
+    
+    /**
+     * @return ContentState
+     */
+    public static function createEmpty() : ContentState
+    {
+        return new self([], []);
+    }
 
     /**
      * @param ContentBlock[] $blocks
