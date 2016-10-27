@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp\Model;
+<?php
+
+namespace Prezly\DraftPhp\Model;
 
 use InvalidArgumentException;
 use Prezly\DraftPhp\Constants\BlockType;
@@ -23,7 +25,7 @@ class ContentState
     {
         return new self($blocks, $entityMap);
     }
-    
+
     /**
      * @return ContentState
      */
@@ -57,22 +59,23 @@ class ContentState
     {
         return $this->entityMap[$key];
     }
-    
+
     public function isEmpty() : bool
     {
         if (count($this->_blocks) === 0) {
             return true;
         }
-        if ( ! empty($this->_entityMap) OR count($this->_blocks) > 1) {
+        if ( ! empty($this->_entityMap) or count($this->_blocks) > 1) {
             return false;
         }
 
         // Now `count($this->_blocks) === 1`
         $block = $this->_blocks[0];
-        return strlen($block->text) === 0 AND $block->type !== BlockType::ATOMIC;
+
+        return strlen($block->text) === 0 and $block->type !== BlockType::ATOMIC;
     }
 
-    function __get($name)
+    public function __get($name)
     {
         // public read-only access to private properties
         return $this->{'_' . $name};
