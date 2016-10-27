@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp;
+<?php
+
+namespace Prezly\DraftPhp;
 
 use InvalidArgumentException;
 use Prezly\DraftPhp\Model\CharacterMetadata;
@@ -15,7 +17,7 @@ class Converter
     {
         $data = json_decode($json);
 
-        if (is_null($data) OR !is_object($data)) {
+        if (is_null($data) or ! is_object($data)) {
             throw new InvalidArgumentException("Invalid JSON given: '$json'");
         }
 
@@ -60,6 +62,7 @@ class Converter
             $rawEntity->mutability,
             json_decode(json_encode($rawEntity->data), true) ?: []
         );
+
         return $entity;
     }
 
@@ -70,16 +73,16 @@ class Converter
     private static function convertBlockFromRaw($rawBlock) : ContentBlock
     {
         $characterList = [];
-        for($i = 0; $i < strlen($rawBlock->text); $i++) {
+        for ($i = 0; $i < strlen($rawBlock->text); $i++) {
             $style = [];
             $entity = null;
             foreach ($rawBlock->inlineStyleRanges as $inlineStyleRange) {
-                if ($inlineStyleRange->offset <= $i AND $i < ($inlineStyleRange->offset + $inlineStyleRange->length)) {
+                if ($inlineStyleRange->offset <= $i and $i < ($inlineStyleRange->offset + $inlineStyleRange->length)) {
                     $style[] = $inlineStyleRange->style;
                 }
             }
             foreach ($rawBlock->entityRanges as $entityRange) {
-                if ($entityRange->offset <= $i AND $i < ($entityRange->offset + $entityRange->length)) {
+                if ($entityRange->offset <= $i and $i < ($entityRange->offset + $entityRange->length)) {
                     $entity = $entityRange->key;
                 }
             }

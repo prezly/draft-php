@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp\Constants;
+<?php
+
+namespace Prezly\DraftPhp\Constants;
 
 interface InlineStyle
 {

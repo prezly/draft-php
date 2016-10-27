@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp\Model;
+<?php
+
+namespace Prezly\DraftPhp\Model;
 
 /*
  * Classes here exist just to describe a complex stdClasses structure

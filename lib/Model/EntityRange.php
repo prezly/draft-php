@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp\Model;
+<?php
+
+namespace Prezly\DraftPhp\Model;
 
 /**
  * @property int $key
@@ -21,7 +23,7 @@ class EntityRange
         $this->_length = $length;
     }
 
-    function __get($name)
+    public function __get($name)
     {
         // public read-only access to private properties
         return $this->{'_' . $name};

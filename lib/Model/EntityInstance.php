@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp\Model;
+<?php
+
+namespace Prezly\DraftPhp\Model;
 
 use Prezly\DraftPhp\Constants\EntityType;
 
