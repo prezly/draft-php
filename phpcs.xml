@@ -71,12 +71,12 @@
         <type>warning</type>
     </rule>
 
-    <rule ref="Generic.Files.LineLength">
+    <!--<rule ref="Generic.Files.LineLength">
         <properties>
             <property name="lineLimit" value="120"/>
             <property name="absoluteLineLimit" value="200"/>
         </properties>
-    </rule>
+    </rule>-->
     <rule ref="Generic.Files.LineLength">
         <exclude name="Generic.Files.LineLength.MaxExceeded"/>
         <exclude name="Generic.Files.LineLength.TooLong"/>
