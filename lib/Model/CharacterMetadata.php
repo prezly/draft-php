@@ -26,7 +26,7 @@ class CharacterMetadata
     public static function create(array $style, string $entity = null)
     {
         foreach ($style as $s) {
-            if ( ! is_string($s)) {
+            if (! is_string($s)) {
                 throw new InvalidArgumentException('$style should be an array of strings');
             }
         }
@@ -35,7 +35,7 @@ class CharacterMetadata
 
         $fingerprint = md5(serialize($style) . '/' . $entity);
 
-        if ( ! isset(self::$pool[$fingerprint])) {
+        if (! isset(self::$pool[$fingerprint])) {
             self::$pool[$fingerprint] = new static($style, $entity);
         }
 

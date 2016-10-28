@@ -41,12 +41,12 @@ class ContentState
     private function __construct(array $blocks, array $entityMap)
     {
         foreach ($blocks as $b) {
-            if ( ! $b instanceof ContentBlock) {
+            if (! $b instanceof ContentBlock) {
                 throw new InvalidArgumentException('$blocks array may contain only ContentBlock objects');
             }
         }
         foreach ($entityMap as $e) {
-            if ( ! $e instanceof EntityInstance) {
+            if (! $e instanceof EntityInstance) {
                 throw new InvalidArgumentException('$entityMap map may contain only EntityInstance objects');
             }
         }
@@ -65,7 +65,7 @@ class ContentState
         if (count($this->_blocks) === 0) {
             return true;
         }
-        if ( ! empty($this->_entityMap) or count($this->_blocks) > 1) {
+        if (! empty($this->_entityMap) or count($this->_blocks) > 1) {
             return false;
         }
 
