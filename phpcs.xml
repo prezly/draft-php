@@ -8,6 +8,8 @@
         <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/>
     </rule>
 
+    <!--Exclude stub file-->
+    <exclude-pattern>lib/Model/_stubs.php</exclude-pattern>
 
     <rule ref="Generic.CodeAnalysis.EmptyStatement">
         <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCATCH"/>
