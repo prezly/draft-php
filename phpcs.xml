@@ -24,11 +24,31 @@
 
     <rule ref="Generic.Files.ByteOrderMark"/>
     <rule ref="Generic.Files.LineEndings"/>
+    <!--<rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="200"/>
+        </properties>
+    </rule>-->
+    <rule ref="Generic.Files.LineLength">
+        <exclude name="Generic.Files.LineLength.MaxExceeded"/>
+        <exclude name="Generic.Files.LineLength.TooLong"/>
+    </rule>
+    <!--
+    <rule ref="Generic.Files.LineLength.MaxExceeded">
+        <message>Line contains %s chars, which is longer than the max limit of %s</message>
+        <type>warning</type>
+    </rule>
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <message>Line longer than %s characters; contains %s characters</message>
+        <type>warning</type>
+    </rule> -->
 
     <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
     <rule ref="Generic.Formatting.SpaceAfterCast.NoSpace">
         <type>warning</type>
     </rule>
+
     <rule ref="Generic.Functions.CallTimePassByReference"/>
     <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
 
@@ -73,25 +93,6 @@
         <type>warning</type>
     </rule>
 
-    <!--<rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="120"/>
-            <property name="absoluteLineLimit" value="200"/>
-        </properties>
-    </rule>-->
-    <rule ref="Generic.Files.LineLength">
-        <exclude name="Generic.Files.LineLength.MaxExceeded"/>
-        <exclude name="Generic.Files.LineLength.TooLong"/>
-    </rule>
-    <!--
-    <rule ref="Generic.Files.LineLength.MaxExceeded">
-        <message>Line contains %s chars, which is longer than the max limit of %s</message>
-        <type>warning</type>
-    </rule>
-    <rule ref="Generic.Files.LineLength.TooLong">
-        <message>Line longer than %s characters; contains %s characters</message>
-        <type>warning</type>
-    </rule> -->
     <rule ref="Generic.Classes.DuplicateClassName"/>
 
     <rule ref="PEAR.Commenting.InlineComment"/>
@@ -119,6 +120,7 @@
     <rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
 
     <rule ref="Squiz.Scope.StaticThisUsage"/>
+
     <rule ref="Squiz.Strings.ConcatenationSpacing">
         <properties>
             <property name="spacing" value="1"/>
