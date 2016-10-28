@@ -119,5 +119,10 @@
     <rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
 
     <rule ref="Squiz.Scope.StaticThisUsage"/>
+    <rule ref="Squiz.Strings.ConcatenationSpacing">
+        <properties>
+            <property name="spacing" value="1"/>
+        </properties>
+    </rule>
 
 </ruleset>
