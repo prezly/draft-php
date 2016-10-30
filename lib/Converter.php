@@ -30,11 +30,11 @@ class Converter
      */
     public static function convertFromRaw($raw) : ContentState
     {
-        if ( ! isset($raw->blocks)) {
+        if (! isset($raw->blocks)) {
             throw new InvalidArgumentException("Invalid JSON given: 'blocks' property is missing");
         }
 
-        if ( ! isset($raw->entityMap)) {
+        if (! isset($raw->entityMap)) {
             throw new InvalidArgumentException("Invalid JSON given: 'entityMap' property is missing");
         }
 
