@@ -9,3 +9,7 @@ phpcs:
 
 phpcbf:
 	vendor/bin/phpcbf --standard=phpcs.xml --encoding=utf-8 lib/
+
+code-style-check: phpcs
+
+code-style-fix: phpcbf
