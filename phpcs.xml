@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ruleset name="Draft-PHP project code style checker config">
-    <rule ref="./prezly.phpcs.xml">
+    <rule ref="./vendor/prezly/code-style/prezly.phpcs.xml">
         <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
     </rule>
     <rule ref="PSR1.Classes.ClassDeclaration">
