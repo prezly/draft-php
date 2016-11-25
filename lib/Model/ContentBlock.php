@@ -60,7 +60,7 @@ class ContentBlock
 
     public function getLength() : int
     {
-        return strlen($this->_text);
+        return mb_strlen($this->_text);
     }
 
     public function getDepth() : int

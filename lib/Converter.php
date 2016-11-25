@@ -73,7 +73,7 @@ class Converter
     private static function convertBlockFromRaw($rawBlock) : ContentBlock
     {
         $characterList = [];
-        for ($i = 0; $i < strlen($rawBlock->text); $i++) {
+        for ($i = 0; $i < mb_strlen($rawBlock->text); $i++) {
             $style = [];
             $entity = null;
             foreach ($rawBlock->inlineStyleRanges as $inlineStyleRange) {

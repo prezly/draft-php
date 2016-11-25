@@ -118,6 +118,34 @@ class ConverterTest extends PHPUnit_Framework_TestCase
         return $contentState;
     }
 
+    /**
+     * @test
+     */
+    public function it_should_handle_multi_byte_strings_properly()
+    {
+        $json = json_encode([
+            "entityMap" => [],
+            "blocks" => [
+                [
+                    "key" => "3bhqv",
+                    "text" => "à la carte",
+                    "type" => "unstyled",
+                    "depth" => 0,
+                    "inlineStyleRanges" => [],
+                    "entityRanges" => [],
+                    "data" => [],
+                ]
+            ]
+        ]);
+
+        $contentState = Converter::convertFromJson($json);
+
+        $this->assertCount(1, $contentState->blocks);
+        foreach ($contentState->blocks as $block) {
+            $this->assertCount(10, $block->characterList); // 10 characters
+        }
+    }
+
     private function stdClass(array $props) : stdClass
     {
         $o = new stdClass();

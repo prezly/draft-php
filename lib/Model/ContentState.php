@@ -72,7 +72,7 @@ class ContentState
         // Now `count($this->_blocks) === 1`
         $block = $this->_blocks[0];
 
-        return strlen($block->text) === 0 and $block->type !== BlockType::ATOMIC;
+        return mb_strlen($block->text) === 0 and $block->type !== BlockType::ATOMIC;
     }
 
     public function __get($name)
