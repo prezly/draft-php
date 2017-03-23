@@ -29,7 +29,7 @@ class SerializerTest extends PHPUnit_Framework_TestCase
         $dataset = [];
 
         while (($file = readdir($handle)) !== false) {
-            if (substr($file, -5) === '.json' && strpos($file, '12_link') !== false) {
+            if (substr($file, -5) === '.json') {
                 $json = $this->loadFile(self::FIXTURES_DIR . '/' . $file);
                 $dataset[$file] = [$json];
             }
