@@ -107,7 +107,7 @@ var_dump($contentState->blocks[0]->characterList[0]);
   }
 */
 
-var_dump($contentState->getEntity($contentState->blocks[0]->characterList[0]->entity);
+var_dump($contentState->getEntity($contentState->blocks[0]->characterList[0]->entity));
 /*
   Prezly\DraftPhp\Model\EntityInstance {#1505
     -_type: "link"
