@@ -139,6 +139,8 @@ var_dump($contentState->getEntity($contentState->blocks[0]->characterList[0]->en
 $contentState = \Prezly\DraftPhp\Converter::convertFromJson($json);
 
 $serializedJson = \Prezly\DraftPhp\Serializer::serialize($contentState);
+// or
+$serializedJson = json_serialize($contentState); 
 
 // now $json is equivalent to $serializedJson (formatting and order may differ though)
 // see SerializerTest for examples

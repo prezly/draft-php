@@ -3,13 +3,15 @@
 namespace Prezly\DraftPhp\Model;
 
 use InvalidArgumentException;
+use JsonSerializable;
 use Prezly\DraftPhp\Constants\BlockType;
+use Prezly\DraftPhp\Serializer;
 
 /**
  * @property ContentBlock[] $blocks
  * @property EntityInstance[] $entityMap
  */
-class ContentState
+class ContentState implements JsonSerializable
 {
     /** @var ContentBlock[] */
     private $_blocks;
@@ -79,5 +81,17 @@ class ContentState
     {
         // public read-only access to private properties
         return $this->{'_' . $name};
+    }
+
+    /**
+     * @return RawDraftContentState|\stdClass
+     */
+    public function jsonSerialize()
+    {
+        $serializer = new Serializer();
+
+        $rawContentState = $serializer->serializeRaw($this);
+
+        return $rawContentState;
     }
 }

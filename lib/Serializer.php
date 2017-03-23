@@ -19,16 +19,16 @@ class Serializer
     {
         $serializer = new self();
 
-        $rawContentState = $serializer ->serializeContentState($contentState);
+        $rawContentState = $serializer->serializeRaw($contentState);
 
         return json_encode($rawContentState, $options);
     }
 
     /**
      * @param ContentState $contentState
-     * @return \Prezly\DraftPhp\Model\RawDraftContentState
+     * @return \stdClass|\Prezly\DraftPhp\Model\RawDraftContentState
      */
-    private function serializeContentState(ContentState $contentState)
+    public function serializeRaw(ContentState $contentState): \stdClass
     {
         /**
          * @var $rawContentState \Prezly\DraftPhp\Model\RawDraftContentState

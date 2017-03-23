@@ -23,6 +23,32 @@ class SerializerTest extends PHPUnit_Framework_TestCase
         $this->assertJsonStringEqualsJsonString(trim($json), $serialized);
     }
 
+    /**
+     * @test
+     * @dataProvider fixtures
+     *
+     * @param string $json
+     */
+    public function it_should_serialize_to_raw_content_state(string $json)
+    {
+        $rawContentState = $this->serializeRaw($this->convert($json));
+
+        $this->assertJsonStringEqualsJsonString($json, json_encode($rawContentState));
+    }
+
+    /**
+     * @test
+     * @dataProvider fixtures
+     *
+     * @param string $json
+     */
+    public function content_state_instance_should_be_json_serializable(string $json)
+    {
+        $contentState = $this->convert($json);
+
+        $this->assertJsonStringEqualsJsonString($json, json_encode($contentState));
+    }
+
     public function fixtures()
     {
         $handle = opendir(self::FIXTURES_DIR);
@@ -51,5 +77,12 @@ class SerializerTest extends PHPUnit_Framework_TestCase
     private function serialize(ContentState $contentState, int $options = JSON_PRETTY_PRINT): string
     {
         return Serializer::serialize($contentState, $options);
+    }
+
+    private function serializeRaw(ContentState $contentState)
+    {
+        $serializer = new Serializer();
+
+        return $serializer->serializeRaw($contentState);
     }
 }
