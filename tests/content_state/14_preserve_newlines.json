@@ -1,0 +1,14 @@
+{
+    "entityMap": {},
+    "blocks": [
+        {
+            "key": "3bhqv",
+            "text": "Hello,\nThis text is preformatted with newlines.\nAlso it has a trailing newline which should be doubled to be preserved too:\n",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }
+    ]
+}

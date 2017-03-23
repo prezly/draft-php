@@ -1,0 +1,28 @@
+{
+    "entityMap": {
+        "0": {
+            "type": "link",
+            "mutability": "MUTABLE",
+            "data": {
+                "href": "https://www.prezly.com/"
+            }
+        }
+    },
+    "blocks": [
+        {
+            "key": "7si2a",
+            "text": "Check out Prezly -- smooth brand storytelling engine!",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+                {
+                    "key": "0",
+                    "offset": 10,
+                    "length": 6
+                }
+            ],
+            "data": {}
+        }
+    ]
+}

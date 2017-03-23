@@ -1,0 +1,15 @@
+{
+    "entityMap": {
+    },
+    "blocks": [
+        {
+            "key": "frvee",
+            "text": "Hello world!",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }
+    ]
+}

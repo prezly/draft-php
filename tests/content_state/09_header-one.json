@@ -1,0 +1,23 @@
+{
+    "entityMap": {},
+    "blocks": [
+        {
+            "key": "frvee",
+            "text": "Prezly",
+            "type": "header-one",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "xasds",
+            "text": "Smooth brand storytelling engine.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }
+    ]
+}

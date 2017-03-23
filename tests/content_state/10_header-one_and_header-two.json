@@ -1,0 +1,32 @@
+{
+    "entityMap": {},
+    "blocks": [
+        {
+            "key": "frvee",
+            "text": "Prezly",
+            "type": "header-one",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "frvex",
+            "text": "Smooth brand storytelling engine",
+            "type": "header-two",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "xasds",
+            "text": "Online press room, scattergun text-only press release distribution via Outlook, multimedia file management on DropBox, media contacts on Excel spreadsheets, and no way of tracking your relationships with journalists, influencers, and stakeholders.",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }
+    ]
+}

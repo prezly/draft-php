@@ -1,0 +1,25 @@
+{
+    "entityMap": {},
+    "blocks": [
+        {
+            "key": "7si2a",
+            "text": "Hello world!",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [
+                {
+                    "offset": 2,
+                    "length": 6,
+                    "style": "ITALIC"
+                },
+                {
+                    "offset": 6,
+                    "length": 5,
+                    "style": "BOLD"
+                }
+            ],
+            "entityRanges": [],
+            "data": {}
+        }
+    ]
+}

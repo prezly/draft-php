@@ -1,0 +1,95 @@
+{
+    "entityMap": {},
+    "blocks": [
+        {
+            "key": "ag6qs",
+            "text": "Lists rendering",
+            "type": "header-one",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "59kd9",
+            "text": "Draft JS editor features:",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "bqjdr",
+            "text": "Good usability",
+            "type": "unordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "1pdm1",
+            "text": "A nice default base of plugins",
+            "type": "unordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "1sd0p",
+            "text": "Extensibility.",
+            "type": "unordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "fj3ho",
+            "text": "Elvis songs:",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "28aht",
+            "text": "Amazing Grace",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "6kivi",
+            "text": "Barefoot ballad",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        },
+        {
+            "key": "2dumn",
+            "text": "Hounddog",
+            "type": "ordered-list-item",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {
+            }
+        }
+    ]
+}
