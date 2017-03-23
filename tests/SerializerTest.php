@@ -50,7 +50,6 @@ class SerializerTest extends PHPUnit_Framework_TestCase
 
     private function serialize(ContentState $contentState, int $options = JSON_PRETTY_PRINT): string
     {
-        $serializer = new Serializer();
-        return $serializer->serialize($contentState, $options);
+        return Serializer::serialize($contentState, $options);
     }
 }

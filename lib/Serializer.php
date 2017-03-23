@@ -15,9 +15,11 @@ class Serializer
      * @param int $options json_encode options bit mask
      * @return string
      */
-    public function serialize(ContentState $contentState, int $options = 0): string
+    public static function serialize(ContentState $contentState, int $options = 0): string
     {
-        $rawContentState = $this->serializeContentState($contentState);
+        $serializer = new self();
+
+        $rawContentState = $serializer ->serializeContentState($contentState);
 
         return json_encode($rawContentState, $options);
     }
