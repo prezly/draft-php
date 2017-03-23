@@ -2,6 +2,8 @@
 
 namespace Prezly\DraftPhp\Model;
 
+use InvalidArgumentException;
+
 /**
  * @property string $key
  * @property string $type
@@ -27,6 +29,16 @@ class ContentBlock
 
     public function __construct(string $key, string $type, string $text, array $characterList, int $depth, array $data = [])
     {
+        foreach ($characterList as $char) {
+            if (! $char instanceof CharacterMetadata) {
+                throw new InvalidArgumentException('$characterList should consist of CharacterMetadata instances exclusively.');
+            }
+        }
+
+        if (mb_strlen($text) !== count($characterList)) {
+            throw new InvalidArgumentException('Length of $text and length of $characterList should match.');
+        }
+
         $this->_key = $key;
         $this->_type = $type;
         $this->_text = $text;
