@@ -11,8 +11,26 @@ use Prezly\DraftPhp\Model\RawDraftContentBlock;
 use Prezly\DraftPhp\Model\RawDraftContentState;
 use Prezly\DraftPhp\Model\RawDraftEntity;
 
+/**
+ * Converts serialized ContentState presentation
+ * (JSON string or raw JSON-decoded stdClass)
+ * into properly-validated ContentState model.
+ *
+ * Mimics DraftJS converter API.
+ *
+ * Throws InvalidArgumentException if invalid JSON structure given.
+ */
 class Converter
 {
+    /**
+     * Convert ContentState JSON string presentation
+     * into ContentState model class.
+     *
+     * @throws \InvalidArgumentException when invalid JSON string or invalid JSON structure given.
+     *
+     * @param string $json
+     * @return \Prezly\DraftPhp\Model\ContentState
+     */
     public static function convertFromJson(string $json) : ContentState
     {
         $data = json_decode($json);
@@ -25,6 +43,11 @@ class Converter
     }
 
     /**
+     * Convert ContentState JSON-decoded stdClass presentation
+     * into ContentState model class.
+     *
+     * @throws \InvalidArgumentException when invalid structure given.
+     *
      * @param \stdClass|RawDraftContentState $raw
      * @return ContentState
      */
