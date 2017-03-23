@@ -3,8 +3,21 @@ Prezly's Draft-PHP
 
 PHP implementation of Draft.js ContentState model to allow server-side handling of Draft.js produced content.
 
+### Table of contents
+
+* [Usage](#usage)
+  - [Reading ContentState JSON](#reading-contentstate-json)
+  - [Serializing ContentState back to JSON](#serializing-contentstate-back-to-json)
+* [Notes on implementation](#notes-on-implementation)
+* [Other implementations](#other-implementations)
+* [License](#license)
+* [Credits](#credits)
+
 Usage
 -----
+
+### Reading ContentState JSON
+
 ```php
 // raw JSON content state coming from Draft.js frontend
 $json = '{
@@ -118,6 +131,17 @@ var_dump($contentState->getEntity($contentState->blocks[0]->characterList[0]->en
   }
 */
 ```
+
+### Serializing ContentState back to JSON
+
+// convert raw JSON state to ContentState model object 
+$contentState = \Prezly\DraftPhp\Converter::convertFromJson($json);
+
+$serializer = new \Prezly\DraftPhp\Serializer();
+$serializedJson = $serializer->serialize($contentState);
+
+// now $json is equivalent to $serializedJson (formatting and order may differ though)
+// see SerializerTest for examples
 
 Notes on implementation 
 -----------------------
