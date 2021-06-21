@@ -1,6 +1,6 @@
 <?php namespace Prezly\DraftPhp\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Prezly\DraftPhp\Constants\BlockType;
 use Prezly\DraftPhp\Model\ContentBlock;
 use Prezly\DraftPhp\Model\ContentState;
@@ -8,7 +8,7 @@ use Prezly\DraftPhp\Converter;
 use Prezly\DraftPhp\Model\EntityInstance;
 use stdClass;
 
-class ConverterTest extends PHPUnit_Framework_TestCase
+class ConverterTest extends TestCase
 {
     /**
      * @test
@@ -45,7 +45,7 @@ class ConverterTest extends PHPUnit_Framework_TestCase
             'not_blocks' => [],
             'entityMap' => new stdClass(),
         ]));
-        $this->setExpectedException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         Converter::convertFromRaw($raw);
     }
 
@@ -58,7 +58,7 @@ class ConverterTest extends PHPUnit_Framework_TestCase
             'blocks' => [],
             'not_entityMap' => new stdClass(),
         ]);
-        $this->setExpectedException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         Converter::convertFromRaw($raw);
     }
 
