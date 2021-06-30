@@ -15,7 +15,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.0",
-        "prezly/code-style": "^2.0"
+        "prezly/code-style": "^3.0"
     },
     "autoload": {
         "psr-4": {
