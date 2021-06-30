@@ -3,6 +3,8 @@ Prezly's Draft-PHP
 
 PHP implementation of Draft.js ContentState model to allow server-side handling of Draft.js produced content.
 
+![Tests Status](https://github.com/prezly/draft-php/actions/workflows/test.yml/badge.svg)
+
 ### Table of contents
 
 * [Usage](#usage)
