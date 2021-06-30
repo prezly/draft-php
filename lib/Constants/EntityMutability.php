@@ -4,7 +4,7 @@ namespace Prezly\DraftPhp\Constants;
 
 interface EntityMutability
 {
-    const MUTABLE = 'MUTABLE';
-    const IMMUTABLE = 'IMMUTABLE';
-    const SEGMENTED = 'SEGMENTED';
+    public const MUTABLE = 'MUTABLE';
+    public const IMMUTABLE = 'IMMUTABLE';
+    public const SEGMENTED = 'SEGMENTED';
 }

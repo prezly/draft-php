@@ -51,12 +51,12 @@ class CharacterMetadata
     /**
      * @return string[]
      */
-    public function getStyle() : array
+    public function getStyle(): array
     {
         return $this->_style;
     }
 
-    public function hasStyle(string $style) : bool
+    public function hasStyle(string $style): bool
     {
         return in_array($style, $this->_style);
     }

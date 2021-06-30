@@ -1,4 +1,5 @@
 <?php
+
 namespace Prezly\DraftPhp;
 
 use Prezly\DraftPhp\Model\ContentBlock;
@@ -30,9 +31,7 @@ class Serializer
      */
     public function serializeRaw(ContentState $contentState): \stdClass
     {
-        /**
-         * @var $rawContentState \Prezly\DraftPhp\Model\RawDraftContentState
-         */
+        /** @var \Prezly\DraftPhp\Model\RawDraftContentState $rawContentState */
         $rawContentState = (object) [
             'blocks'    => [],
             'entityMap' => (object) [],
@@ -64,7 +63,7 @@ class Serializer
     private function serializeBlock(ContentBlock $block)
     {
         /** @var \Prezly\DraftPhp\Model\RawDraftContentBlock $rawBlock */
-        $rawBlock = (object) [
+        return (object) [
             'key'               => $block->key,
             'type'              => $block->type,
             'text'              => $block->text,
@@ -73,8 +72,6 @@ class Serializer
             'entityRanges'      => $this->serializeEntityRanges($block),
             'data'              => $block->getData() ?: (object) [], // to force empty object instead of empty array
         ];
-
-        return $rawBlock;
     }
 
     /**
@@ -122,9 +119,7 @@ class Serializer
             $prev_char = $char;
         }
 
-        $ranges = array_merge($ranges, array_values($current_ranges_map));
-
-        return $ranges;
+        return array_merge($ranges, array_values($current_ranges_map));
     }
 
     /**
@@ -169,13 +164,11 @@ class Serializer
     private function serializeEntity(EntityInstance $entityInstance)
     {
         /** @var \Prezly\DraftPhp\Model\RawDraftEntity $entity */
-        $entity = (object) [
+        return (object) [
             'type'       => $entityInstance->type,
             'mutability' => $entityInstance->mutability,
             'data'       => $entityInstance->data,
         ];
-
-        return $entity;
     }
 
     /**

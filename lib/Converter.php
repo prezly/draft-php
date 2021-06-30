@@ -31,7 +31,7 @@ class Converter
      * @param string $json
      * @return \Prezly\DraftPhp\Model\ContentState
      */
-    public static function convertFromJson(string $json) : ContentState
+    public static function convertFromJson(string $json): ContentState
     {
         $data = json_decode($json);
 
@@ -51,7 +51,7 @@ class Converter
      * @param \stdClass|RawDraftContentState $raw
      * @return ContentState
      */
-    public static function convertFromRaw($raw) : ContentState
+    public static function convertFromRaw($raw): ContentState
     {
         if (! isset($raw->blocks)) {
             throw new InvalidArgumentException("Invalid JSON given: 'blocks' property is missing");
@@ -78,22 +78,20 @@ class Converter
      * @param \stdClass|RawDraftEntity $rawEntity
      * @return EntityInstance
      */
-    private static function convertEntityFromRaw($rawEntity) : EntityInstance
+    private static function convertEntityFromRaw($rawEntity): EntityInstance
     {
-        $entity = new EntityInstance(
+        return new EntityInstance(
             $rawEntity->type,
             $rawEntity->mutability,
             json_decode(json_encode($rawEntity->data), true) ?: []
         );
-
-        return $entity;
     }
 
     /**
      * @param \stdClass|RawDraftContentBlock $rawBlock
      * @return ContentBlock
      */
-    private static function convertBlockFromRaw($rawBlock) : ContentBlock
+    private static function convertBlockFromRaw($rawBlock): ContentBlock
     {
         $characterList = [];
         for ($i = 0; $i < mb_strlen($rawBlock->text); $i++) {
@@ -112,7 +110,7 @@ class Converter
             $characterList[] = CharacterMetadata::create($style, $entity);
         }
 
-        $block = new ContentBlock(
+        return new ContentBlock(
             $rawBlock->key,
             $rawBlock->type,
             $rawBlock->text,
@@ -120,7 +118,5 @@ class Converter
             $rawBlock->depth,
             json_decode(json_encode($rawBlock->data), true) ?: []
         );
-
-        return $block;
     }
 }

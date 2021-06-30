@@ -23,7 +23,7 @@ class ContentState implements JsonSerializable
      * @param EntityInstance[] $entityMap
      * @return ContentState
      */
-    public static function createFromBlockArray(array $blocks, array $entityMap) : ContentState
+    public static function createFromBlockArray(array $blocks, array $entityMap): ContentState
     {
         return new self($blocks, $entityMap);
     }
@@ -31,7 +31,7 @@ class ContentState implements JsonSerializable
     /**
      * @return ContentState
      */
-    public static function createEmpty() : ContentState
+    public static function createEmpty(): ContentState
     {
         return new self([], []);
     }
@@ -57,12 +57,12 @@ class ContentState implements JsonSerializable
         $this->_entityMap = $entityMap;
     }
 
-    public function getEntity(string $key) : EntityInstance
+    public function getEntity(string $key): EntityInstance
     {
         return $this->entityMap[$key];
     }
 
-    public function isEmpty() : bool
+    public function isEmpty(): bool
     {
         if (count($this->_blocks) === 0) {
             return true;
@@ -90,8 +90,6 @@ class ContentState implements JsonSerializable
     {
         $serializer = new Serializer();
 
-        $rawContentState = $serializer->serializeRaw($this);
-
-        return $rawContentState;
+        return $serializer->serializeRaw($this);
     }
 }

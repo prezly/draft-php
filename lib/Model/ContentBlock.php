@@ -47,17 +47,17 @@ class ContentBlock
         $this->_data = $data;
     }
 
-    public function getKey() : string
+    public function getKey(): string
     {
         return $this->_key;
     }
 
-    public function getType() : string
+    public function getType(): string
     {
         return $this->_type;
     }
 
-    public function getText() : string
+    public function getText(): string
     {
         return $this->_text;
     }
@@ -65,22 +65,22 @@ class ContentBlock
     /**
      * @return CharacterMetadata[]
      */
-    public function getCharacterList() : array
+    public function getCharacterList(): array
     {
         return $this->_characterList;
     }
 
-    public function getLength() : int
+    public function getLength(): int
     {
         return mb_strlen($this->_text);
     }
 
-    public function getDepth() : int
+    public function getDepth(): int
     {
         return $this->_depth;
     }
 
-    public function getInlineStyleAt(int $offset) : array
+    public function getInlineStyleAt(int $offset): array
     {
         return $this->_characterList[$offset]->getStyle();
     }
@@ -90,7 +90,7 @@ class ContentBlock
         return $this->_characterList[$offset]->getEntity();
     }
 
-    public function getData() : array
+    public function getData(): array
     {
         return $this->_data;
     }
