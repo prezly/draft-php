@@ -85,7 +85,7 @@ class ContentBlock
         return $this->_characterList[$offset]->getStyle();
     }
 
-    public function getEntityAt(int $offset)
+    public function getEntityAt(int $offset): ?string
     {
         return $this->_characterList[$offset]->getEntity();
     }

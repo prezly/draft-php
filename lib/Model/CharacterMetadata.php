@@ -61,10 +61,7 @@ class CharacterMetadata
         return in_array($style, $this->_style);
     }
 
-    /**
-     * @return string|null
-     */
-    public function getEntity()
+    public function getEntity(): ?string
     {
         return $this->_entity;
     }

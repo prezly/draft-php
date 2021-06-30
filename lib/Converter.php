@@ -26,10 +26,10 @@ class Converter
      * Convert ContentState JSON string presentation
      * into ContentState model class.
      *
-     * @throws \InvalidArgumentException when invalid JSON string or invalid JSON structure given.
-     *
      * @param string $json
-     * @return \Prezly\DraftPhp\Model\ContentState
+     * @return ContentState
+     *@throws InvalidArgumentException when invalid JSON string or invalid JSON structure given.
+     *
      */
     public static function convertFromJson(string $json): ContentState
     {
@@ -46,12 +46,12 @@ class Converter
      * Convert ContentState JSON-decoded stdClass presentation
      * into ContentState model class.
      *
-     * @throws \InvalidArgumentException when invalid structure given.
-     *
      * @param \stdClass|RawDraftContentState $raw
      * @return ContentState
+     *@throws InvalidArgumentException when invalid structure given.
+     *
      */
-    public static function convertFromRaw($raw): ContentState
+    public static function convertFromRaw(object $raw): ContentState
     {
         if (! isset($raw->blocks)) {
             throw new InvalidArgumentException("Invalid JSON given: 'blocks' property is missing");
@@ -78,7 +78,7 @@ class Converter
      * @param \stdClass|RawDraftEntity $rawEntity
      * @return EntityInstance
      */
-    private static function convertEntityFromRaw($rawEntity): EntityInstance
+    private static function convertEntityFromRaw(object $rawEntity): EntityInstance
     {
         return new EntityInstance(
             $rawEntity->type,
@@ -91,7 +91,7 @@ class Converter
      * @param \stdClass|RawDraftContentBlock $rawBlock
      * @return ContentBlock
      */
-    private static function convertBlockFromRaw($rawBlock): ContentBlock
+    private static function convertBlockFromRaw(object $rawBlock): ContentBlock
     {
         $characterList = [];
         for ($i = 0; $i < mb_strlen($rawBlock->text); $i++) {
@@ -116,7 +116,7 @@ class Converter
             $rawBlock->text,
             $characterList,
             $rawBlock->depth,
-            json_decode(json_encode($rawBlock->data), true) ?: []
+            json_decode(json_encode($rawBlock->data), true) ?: [],
         );
     }
 }
