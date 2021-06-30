@@ -12,9 +12,9 @@ namespace Prezly\DraftPhp\Model;
 if (false) {
     class RawDraftContentState
     {
-        /** @var array|RawDraftContentBlock[] */
+        /** @var RawDraftContentBlock[] */
         public $blocks;
-        /** @var array|RawDraftEntity[] */
+        /** @var RawDraftEntity[] */
         public $entityMap;
     }
 

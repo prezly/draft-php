@@ -1,4 +1,6 @@
-<?php namespace Prezly\DraftPhp\Tests\Model;
+<?php
+
+namespace Prezly\DraftPhp\Tests\Model;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +13,7 @@ class ContentBlockTest extends TestCase
     /**
      * @test
      */
-    public function it_should_construct_empty_text_instances()
+    public function it_should_construct_empty_text_instances(): void
     {
         $block = new ContentBlock('0', BlockType::UNSTYLED, '', [], 0);
 
@@ -22,7 +24,7 @@ class ContentBlockTest extends TestCase
     /**
      * @test
      */
-    public function it_should_construct_non_empty_text_instances()
+    public function it_should_construct_non_empty_text_instances(): void
     {
         $text = 'Hello';
         $chars = array_pad([], mb_strlen($text), CharacterMetadata::create([]));
@@ -36,7 +38,7 @@ class ContentBlockTest extends TestCase
     /**
      * @test
      */
-    public function it_should_throw_if_invalid_character_list_array_given()
+    public function it_should_throw_if_invalid_character_list_array_given(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new ContentBlock('0', BlockType::UNSTYLED, '?', ['Not a CharacterMetadata'], 0);
@@ -45,7 +47,7 @@ class ContentBlockTest extends TestCase
     /**
      * @test
      */
-    public function it_should_throw_if_text_length_not_matching_character_list_length()
+    public function it_should_throw_if_text_length_not_matching_character_list_length(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new ContentBlock('0', BlockType::UNSTYLED, '?', [/* should have 1 CharacterMetadata item */], 0);

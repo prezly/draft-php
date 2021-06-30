@@ -4,9 +4,9 @@ namespace Prezly\DraftPhp\Constants;
 
 interface InlineStyle
 {
-    const BOLD = 'BOLD';
-    const CODE = 'CODE';
-    const ITALIC = 'ITALIC';
-    const STRIKETHROUGH = 'STRIKETHROUGH';
-    const UNDERLINE = 'UNDERLINE';
+    public const BOLD = 'BOLD';
+    public const CODE = 'CODE';
+    public const ITALIC = 'ITALIC';
+    public const STRIKETHROUGH = 'STRIKETHROUGH';
+    public const UNDERLINE = 'UNDERLINE';
 }

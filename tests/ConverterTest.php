@@ -1,10 +1,12 @@
-<?php namespace Prezly\DraftPhp\Tests;
+<?php
+
+namespace Prezly\DraftPhp\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Prezly\DraftPhp\Constants\BlockType;
+use Prezly\DraftPhp\Converter;
 use Prezly\DraftPhp\Model\ContentBlock;
 use Prezly\DraftPhp\Model\ContentState;
-use Prezly\DraftPhp\Converter;
 use Prezly\DraftPhp\Model\EntityInstance;
 use stdClass;
 
@@ -13,7 +15,7 @@ class ConverterTest extends TestCase
     /**
      * @test
      */
-    public function it_should_convert_raw_stdClass_structure_to_content_state()
+    public function it_should_convert_raw_stdClass_structure_to_content_state(): void
     {
         $raw = $this->stdClass([
             'blocks' => [],
@@ -26,7 +28,7 @@ class ConverterTest extends TestCase
     /**
      * @test
      */
-    public function it_should_convert_json_to_content_state()
+    public function it_should_convert_json_to_content_state(): void
     {
         $json = json_encode([
             'blocks' => [],
@@ -39,7 +41,7 @@ class ConverterTest extends TestCase
     /**
      * @test
      */
-    public function it_should_validate_if_blocks_property_is_present()
+    public function it_should_validate_if_blocks_property_is_present(): void
     {
         $raw = $this->stdClass(([
             'not_blocks' => [],
@@ -52,7 +54,7 @@ class ConverterTest extends TestCase
     /**
      * @test
      */
-    public function it_should_validate_if_entityMap_property_is_present()
+    public function it_should_validate_if_entityMap_property_is_present(): void
     {
         $raw = $this->stdClass([
             'blocks' => [],
@@ -79,14 +81,14 @@ class ConverterTest extends TestCase
                             'offset' => 6,
                             'length' => 5,
                             'style'  => 'BOLD',
-                        ]
+                        ],
                     ],
                     'entityRanges' => [
                         [
                             'offset' => 0,
                             'length' => 5,
                             'key'  => '0',
-                        ]
+                        ],
                     ],
                     'data' => null,
                 ],
@@ -121,7 +123,7 @@ class ConverterTest extends TestCase
     /**
      * @test
      */
-    public function it_should_handle_multi_byte_strings_properly()
+    public function it_should_handle_multi_byte_strings_properly(): void
     {
         $json = json_encode([
             "entityMap" => [],
@@ -134,8 +136,8 @@ class ConverterTest extends TestCase
                     "inlineStyleRanges" => [],
                     "entityRanges" => [],
                     "data" => [],
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $contentState = Converter::convertFromJson($json);
@@ -146,7 +148,7 @@ class ConverterTest extends TestCase
         }
     }
 
-    private function stdClass(array $props) : stdClass
+    private function stdClass(array $props): stdClass
     {
         $o = new stdClass();
         foreach ($props as $p => $v) {

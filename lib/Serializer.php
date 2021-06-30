@@ -1,9 +1,16 @@
 <?php
+
 namespace Prezly\DraftPhp;
 
+use Prezly\DraftPhp\Model\CharacterMetadata;
 use Prezly\DraftPhp\Model\ContentBlock;
 use Prezly\DraftPhp\Model\ContentState;
 use Prezly\DraftPhp\Model\EntityInstance;
+use Prezly\DraftPhp\Model\RawDraftContentBlock;
+use Prezly\DraftPhp\Model\RawDraftContentState;
+use Prezly\DraftPhp\Model\RawDraftEntity;
+use Prezly\DraftPhp\Model\RawDraftEntityRange;
+use Prezly\DraftPhp\Model\RawDraftInlineStyleRange;
 
 /**
  * Serializes ContentState instance back into JSON re-presentation
@@ -11,7 +18,7 @@ use Prezly\DraftPhp\Model\EntityInstance;
 class Serializer
 {
     /**
-     * @param \Prezly\DraftPhp\Model\ContentState $contentState
+     * @param ContentState $contentState
      * @param int $options json_encode options bit mask
      * @return string
      */
@@ -26,13 +33,11 @@ class Serializer
 
     /**
      * @param ContentState $contentState
-     * @return \stdClass|\Prezly\DraftPhp\Model\RawDraftContentState
+     * @return \stdClass|RawDraftContentState
      */
     public function serializeRaw(ContentState $contentState): \stdClass
     {
-        /**
-         * @var $rawContentState \Prezly\DraftPhp\Model\RawDraftContentState
-         */
+        /** @var RawDraftContentState $rawContentState */
         $rawContentState = (object) [
             'blocks'    => [],
             'entityMap' => (object) [],
@@ -58,13 +63,12 @@ class Serializer
     }
 
     /**
-     * @param \Prezly\DraftPhp\Model\ContentBlock $block
-     * @return \Prezly\DraftPhp\Model\RawDraftContentBlock
+     * @param ContentBlock $block
+     * @return RawDraftContentBlock
      */
-    private function serializeBlock(ContentBlock $block)
+    private function serializeBlock(ContentBlock $block): object
     {
-        /** @var \Prezly\DraftPhp\Model\RawDraftContentBlock $rawBlock */
-        $rawBlock = (object) [
+        return (object) [
             'key'               => $block->key,
             'type'              => $block->type,
             'text'              => $block->text,
@@ -73,22 +77,20 @@ class Serializer
             'entityRanges'      => $this->serializeEntityRanges($block),
             'data'              => $block->getData() ?: (object) [], // to force empty object instead of empty array
         ];
-
-        return $rawBlock;
     }
 
     /**
-     * @param \Prezly\DraftPhp\Model\ContentBlock $block
-     * @return \Prezly\DraftPhp\Model\RawDraftInlineStyleRange[]
+     * @param ContentBlock $block
+     * @return RawDraftInlineStyleRange[]
      */
     private function serializeInlineStyleRanges(ContentBlock $block): array
     {
-        /** @var \Prezly\DraftPhp\Model\RawDraftInlineStyleRange[] $ranges Plain list of ranges */
+        /** @var RawDraftInlineStyleRange[] $ranges Plain list of ranges */
         $ranges = [];
 
-        /** @var \Prezly\DraftPhp\Model\RawDraftInlineStyleRange[] $current_ranges_map [ string $style => $inline_style_ranges, ... ] */
+        /** @var RawDraftInlineStyleRange[] $current_ranges_map [ string $style => $inline_style_ranges, ... ] */
         $current_ranges_map = [];
-        /** @var \Prezly\DraftPhp\Model\CharacterMetadata|null $prev_char */
+        /** @var CharacterMetadata|null $prev_char */
         $prev_char = null;
 
         foreach ($block->getCharacterList() as $offset => $char) {
@@ -122,18 +124,16 @@ class Serializer
             $prev_char = $char;
         }
 
-        $ranges = array_merge($ranges, array_values($current_ranges_map));
-
-        return $ranges;
+        return array_merge($ranges, array_values($current_ranges_map));
     }
 
     /**
-     * @param \Prezly\DraftPhp\Model\ContentBlock $block
-     * @return \Prezly\DraftPhp\Model\RawDraftEntityRange[]
+     * @param ContentBlock $block
+     * @return RawDraftEntityRange[]
      */
     private function serializeEntityRanges(ContentBlock $block): array
     {
-        /** @var \Prezly\DraftPhp\Model\RawDraftEntityRange[] $ranges Plain list of ranges */
+        /** @var RawDraftEntityRange[] $ranges Plain list of ranges */
         $ranges = [];
 
         /** @var string|null $prev_char */
@@ -163,23 +163,21 @@ class Serializer
     }
 
     /**
-     * @param \Prezly\DraftPhp\Model\EntityInstance $entityInstance
-     * @return \Prezly\DraftPhp\Model\RawDraftEntity
+     * @param EntityInstance $entityInstance
+     * @return RawDraftEntity
      */
-    private function serializeEntity(EntityInstance $entityInstance)
+    private function serializeEntity(EntityInstance $entityInstance): object
     {
-        /** @var \Prezly\DraftPhp\Model\RawDraftEntity $entity */
-        $entity = (object) [
+        /** @var RawDraftEntity $entity */
+        return (object) [
             'type'       => $entityInstance->type,
             'mutability' => $entityInstance->mutability,
             'data'       => $entityInstance->data,
         ];
-
-        return $entity;
     }
 
     /**
-     * @param \Prezly\DraftPhp\Model\ContentBlock $block
+     * @param ContentBlock $block
      * @return string[]
      */
     private function getUsedEntityKeys(ContentBlock $block): array

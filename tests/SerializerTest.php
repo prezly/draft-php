@@ -1,4 +1,5 @@
 <?php
+
 namespace Prezly\DraftPhp\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -8,7 +9,7 @@ use Prezly\DraftPhp\Serializer;
 
 class SerializerTest extends TestCase
 {
-    const FIXTURES_DIR = __DIR__ . '/content_state';
+    public const FIXTURES_DIR = __DIR__ . '/content_state';
 
     /**
      * @test
@@ -16,7 +17,7 @@ class SerializerTest extends TestCase
      *
      * @param string $json
      */
-    public function it_should_serialize_content_to_equivalent_json(string $json)
+    public function it_should_serialize_content_to_equivalent_json(string $json): void
     {
         $serialized = $this->serialize($this->convert($json));
 
@@ -29,7 +30,7 @@ class SerializerTest extends TestCase
      *
      * @param string $json
      */
-    public function it_should_serialize_to_raw_content_state(string $json)
+    public function it_should_serialize_to_raw_content_state(string $json): void
     {
         $rawContentState = $this->serializeRaw($this->convert($json));
 
@@ -42,7 +43,7 @@ class SerializerTest extends TestCase
      *
      * @param string $json
      */
-    public function content_state_instance_should_be_json_serializable(string $json)
+    public function content_state_instance_should_be_json_serializable(string $json): void
     {
         $contentState = $this->convert($json);
 
