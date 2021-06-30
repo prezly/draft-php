@@ -10,19 +10,13 @@
         }
     ],
     "require": {
-        "ext-mbstring": "*",
-        "php": ">=7.3"
+        "php": ">=7.3",
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.0",
-        "prezly/code-style": "dev-master"
+        "prezly/code-style": "^2.0"
     },
-    "repositories": [
-        {
-            "url": "https://github.com/prezly/code-style.git",
-            "type": "git"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Prezly\\DraftPhp\\": "./lib",
@@ -30,6 +24,7 @@
         }
     },
     "config": {
+        "sort-packages": true,
         "preferred-install": {
             "phpunit/phpunit": "dist"
         }
