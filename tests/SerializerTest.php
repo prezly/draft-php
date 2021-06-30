@@ -1,12 +1,12 @@
 <?php
 namespace Prezly\DraftPhp\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Prezly\DraftPhp\Converter;
 use Prezly\DraftPhp\Model\ContentState;
 use Prezly\DraftPhp\Serializer;
 
-class SerializerTest extends PHPUnit_Framework_TestCase
+class SerializerTest extends TestCase
 {
     const FIXTURES_DIR = __DIR__ . '/content_state';
 

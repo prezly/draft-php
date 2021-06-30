@@ -1,12 +1,12 @@
 <?php namespace Prezly\DraftPhp\Tests\Model;
 
 use InvalidArgumentException;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Prezly\DraftPhp\Constants\BlockType;
 use Prezly\DraftPhp\Model\CharacterMetadata;
 use Prezly\DraftPhp\Model\ContentBlock;
 
-class ContentBlockTest extends PHPUnit_Framework_TestCase
+class ContentBlockTest extends TestCase
 {
     /**
      * @test
