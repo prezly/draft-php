@@ -1,0 +1,7 @@
+/.github        export-ignore
+/stubs          export-ignore
+/tests          export-ignore
+/phpunit.xml    export-ignore
+/.editorconfig  export-ignore
+/ecs.php        export-ignore
+/Makefile       export-ignore
