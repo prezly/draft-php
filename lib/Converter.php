@@ -116,7 +116,7 @@ class Converter
             $rawBlock->text,
             $characterList,
             $rawBlock->depth,
-            isset($rawBlock->data) && json_decode(json_encode($rawBlock->data), true) ?: [],
+            json_decode(json_encode($rawBlock->data ?? []), true),
         );
     }
 }
