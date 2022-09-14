@@ -28,6 +28,9 @@
         "sort-packages": true,
         "preferred-install": {
             "phpunit/phpunit": "dist"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }
